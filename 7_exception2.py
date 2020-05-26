@@ -11,16 +11,19 @@
   перехватывать исключение ValueError если приведение типов не сработало
     
 """
-
+num_one = int
+num_two = int
 def get_summ(num_one, num_two):
-    """
-    Замените pass на ваш код
-    """
-    pass
+    print (f"num_one",f"num_two")
+    try:
+        get_summ = sum(num_one and num_two)
+        print (int(get_summ))
+
+    except ValueError:
     
 if __name__ == "__main__":
-    print(get_summ(2, 2))
-    print(get_summ(3, "3"))
-    print(get_summ("4", "4"))
-    print(get_summ("five", 5))
-    print(get_summ("six", "шесть"))
+  print(get_summ(2, 2))
+  print(get_summ(3, "3"))
+  print(get_summ("4", "4"))
+  print(get_summ("five", 5))
+  print(get_summ("six", "шесть"))

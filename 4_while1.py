@@ -9,13 +9,16 @@
    
 """
 
+p = input ("Как дела?")
+def ask_user(p):
 
-def ask_user():
-    """
-    Замените pass на ваш код
-    """
-    pass
-
+    while True:
+      user_say = 'Хорошо'
+      
+      break
+    
+        
+        
     
 if __name__ == "__main__":
-    ask_user()
+    ask_user("p")

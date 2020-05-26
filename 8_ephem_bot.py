@@ -41,14 +41,29 @@ def talk_to_me(bot, update):
     user_text = update.message.text 
     print(user_text)
     update.message.reply_text(user_text)
- 
+
+def constellation_planet (bot, update)    
+    planet = (((update["message"]["text"].split())[1]).lower)
+    print(text)
+    
+    if planet == "Mars":
+    import ephem
+    mars = ephem.Mars('2020/05/26')
+    constellation = ephem.constellation(mars)
+    print(constellation)
+    update.message.reply_text(text.split("Mars"))
+
+
 
 def main():
-    mybot = Updater("КЛЮЧ, КОТОРЫЙ НАМ ВЫДАЛ BotFather", request_kwargs=PROXY)
+    mybot = Updater("994851122:AAE0YKbZNKDrU4ZmgsJTas2I8AUZ0a6sSaw
+", request_kwargs=PROXY)
     
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
+
+    
     
     mybot.start_polling()
     mybot.idle()

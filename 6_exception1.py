@@ -10,11 +10,18 @@
     
 """
 
-def ask_user():
-    """
-    Замените pass на ваш код
-    """
-    pass
-    
+
+d = {"Как дела": "Хорошо!", "Что делаешь?": "Программирую"}
+def ask_user_dict (p):
+      p = input ("Задай вопрос:")
+      while True:
+        
+       try:  
+         if p == "Как дела":
+           print ("Хорошо!")
+
+        except KeyboardInterrupt:
+           print ("Пока!")
+           break
 if __name__ == "__main__":
-    ask_user()
+    ask_user("p")
