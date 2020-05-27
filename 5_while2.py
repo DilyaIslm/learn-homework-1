@@ -17,19 +17,23 @@
 
 
 
-d = {"Как дела": "Хорошо!", "Что делаешь?": "Программирую"}
+dialogue = {"Как дела": "Хорошо!", "Что делаешь?": "Программирую"}
 
-def ask_user_dict (p):
-      p = input ("Задай вопрос:")
-      while True:
-        
-           
-        if p == "Как дела":
-          print ("Хорошо!")
+def ask_user_dict (dialogue):
+    question = input("Задай вопрос: ")
+    while True:
+        if question in dialogue:
+            print(dialogue[question])
+            question = input("Задай вопрос: ")
+            
+        if question == "Как дела":
+           print ("Хорошо!")
+
+
           
-        elif p == "Что делаешь?":
-          print ("Программирую")
+        elif question == "Что делаешь?":
+            print ("Программирую")
         
 
 if __name__ == "__main__":
-    ask_user_dict ("p")
+    ask_user_dict (dialogue)

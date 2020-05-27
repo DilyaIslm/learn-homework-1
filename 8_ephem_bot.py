@@ -21,12 +21,13 @@ logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s',
                     filename='bot.log'
 )
 
+import settings
 
 PROXY = {
-    'proxy_url': 'socks5://t1.learn.python.ru:1080',
+    'proxy_url': settings.PROXY_URL,
     'urllib3_proxy_kwargs': {
-        'username': 'learn', 
-        'password': 'python'
+        'username': settings.PROXY_USERNAME, 
+        'password': settings.PROXY_PASSWORD
     }
 }
 
@@ -42,22 +43,21 @@ def talk_to_me(bot, update):
     print(user_text)
     update.message.reply_text(user_text)
 
-def constellation_planet (bot, update)    
+def constellation_planet (bot, update):    
     planet = (((update["message"]["text"].split())[1]).lower)
     print(text)
     
     if planet == "Mars":
-    import ephem
-    mars = ephem.Mars('2020/05/26')
-    constellation = ephem.constellation(mars)
-    print(constellation)
-    update.message.reply_text(text.split("Mars"))
+      import ephem
+      mars = ephem.Mars('2020/05/26')
+      constellation = ephem.constellation(mars)
+      print(constellation)
+      update.message.reply_text(text.split("Mars"))
 
 
 
 def main():
-    mybot = Updater("994851122:AAE0YKbZNKDrU4ZmgsJTas2I8AUZ0a6sSaw
-", request_kwargs=PROXY)
+    mybot = Updater(settings.API_KEY, request_kwargs=PROXY)
     
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
@@ -67,7 +67,7 @@ def main():
     
     mybot.start_polling()
     mybot.idle()
-       
+    print(mybot)   
 
 if __name__ == "__main__":
     main()

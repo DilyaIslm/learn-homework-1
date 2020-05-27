@@ -11,17 +11,20 @@
 """
 
 
-d = {"Как дела": "Хорошо!", "Что делаешь?": "Программирую"}
-def ask_user_dict (p):
-      p = input ("Задай вопрос:")
-      while True:
+dialogue = {"Как дела": "Хорошо!", "Что делаешь?": "Программирую"}
+def ask_user_dict (phrase):
+    phrase = input ("Задай вопрос:")
+    while True:
         
-       try:  
-         if p == "Как дела":
-           print ("Хорошо!")
-
+        try:  
+           if phrase == "Как дела":
+            print ("Хорошо!")
+            
+            
         except KeyboardInterrupt:
-           print ("Пока!")
-           break
+            
+            print ("Пока!")
+            break
+            
 if __name__ == "__main__":
-    ask_user("p")
+    ask_user_dict ("phrase")

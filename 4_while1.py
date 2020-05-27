@@ -9,9 +9,9 @@
    
 """
 
-p = input ("Как дела?")
-def ask_user(p):
-
+question = input ("Как дела?")
+def ask_user(question):
+    print(quesion)
     while True:
       user_say = 'Хорошо'
       
@@ -21,4 +21,4 @@ def ask_user(p):
         
     
 if __name__ == "__main__":
-    ask_user("p")
+    ask_user("question")
