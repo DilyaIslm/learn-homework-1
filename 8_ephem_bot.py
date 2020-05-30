@@ -43,14 +43,13 @@ def talk_to_me(bot, update):
     print(user_text)
     update.message.reply_text(user_text)
 
-def constellation_planet (bot, update):    
+def constellation_planet(bot, update):    
     planet = (((update["message"]["text"].split())[1]).lower)
-    print(text)
     
+    import ephem
     if planet == "Mars":
-      import ephem
-      mars = ephem.Mars('2020/05/26')
-      constellation = ephem.constellation(mars)
+      search_planet = ephem.Mars('2020/05/26')
+      constellation = ephem.constellation(Mars)
       print(constellation)
       update.message.reply_text(text.split("Mars"))
 
@@ -62,6 +61,7 @@ def main():
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler("start", greet_user))
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
+    dp.add_handler(MessageHandler(Filters.text, constellation_planet))
 
     
     
