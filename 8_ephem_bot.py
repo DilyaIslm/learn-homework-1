@@ -31,6 +31,7 @@ PROXY = {
     }
 }
 
+import ephem
 
 def greet_user(bot, update):
     text = 'Вызван /start'
@@ -44,14 +45,13 @@ def talk_to_me(bot, update):
     update.message.reply_text(user_text)
 
 def constellation_planet(bot, update):    
-    planet = (((update["message"]["text"].split())[1]).lower)
+    planet = ((update["message"]["text"].split()[1]).capitalize)
     
-    import ephem
     if planet == "Mars":
       search_planet = ephem.Mars('2020/05/26')
       constellation = ephem.constellation(Mars)
       print(constellation)
-      update.message.reply_text(text.split("Mars"))
+      update.message.reply_text(ephem.constellation("Mars"))[1]
 
 
 
